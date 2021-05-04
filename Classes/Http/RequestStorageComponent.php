@@ -41,7 +41,7 @@ class RequestStorageComponent implements ComponentInterface
         if ($response->hasHeader('X-From-FullPageCache')) {
             return;
         }
-        
+
         if ($response->hasHeader('Set-Cookie')) {
             return;
         }
@@ -72,7 +72,7 @@ class RequestStorageComponent implements ComponentInterface
                 $entryContentHash = md5(str($response));
                 $modifiedResponse = $modifiedResponse
                     ->withAddedHeader('ETag', $entryContentHash)
-                    ->withAddedHeader('CacheControl', 'max-age=' . $publicLifetime);
+                    ->withAddedHeader('Cache-Control', 'max-age=' . $publicLifetime);
             }
 
             $modifiedResponseforStorage = $modifiedResponse

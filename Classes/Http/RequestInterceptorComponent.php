@@ -112,11 +112,11 @@ class RequestInterceptorComponent implements ComponentInterface
                     }
                     if ($remainingCacheTime > 0) {
                         $cachedResponse = $cachedResponse
-                            ->withHeader('CacheControl', 'max-age=' . $remainingCacheTime);
+                            ->withHeader('Cache-Control', 'max-age=' . $remainingCacheTime);
                     }
                 } else {
                     $cachedResponse = $cachedResponse
-                        ->withHeader('CacheControl', 'max-age=' . $this->maxPublicCacheTime);
+                        ->withHeader('Cache-Control', 'max-age=' . $this->maxPublicCacheTime);
                 }
             }
 
